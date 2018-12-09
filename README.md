@@ -1,8 +1,6 @@
-Presentation task for rss2018q3(CSS GRID LAYOUT SYSTEM).
+Presentation task for rss2018q3(CSS GRID LAYOUT SYSTEM)
 
-Notes for presentation are in aside tags with class "notes".
-
-Also some notes are in notes.docx file.
+Notes for presentation are in aside tags with class "notes"
 
 link to presentation - [CSS GRID by Igor Provotorov](https://igor-provotorov.github.io/presentation/)
 
