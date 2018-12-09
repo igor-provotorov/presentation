@@ -1,4 +1,6 @@
-presentation task for rss2018q3(CSS GRID LAYOUT SYSTEM)
+Presentation task for rss2018q3(CSS GRID LAYOUT SYSTEM)
+Notes for presentation are in aside tags with class "notes". Also some notes are in notes.docx file
+link to presentation - [CSS GRID by Igor Provotorov] (https://igor-provotorov.github.io/presentation/)
 ### Presentation
 Your task is to prepare a presentation on a given topic (offered or approved by mentor). The whole list of appropricate topics could be found here - https://github.com/rolling-scopes-school/lectures.
 
