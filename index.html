@@ -965,67 +965,6 @@
 
       <section> <!--*************** slide ***************-->
         <section>
-          <h3>Layering Grid Items</h3>
-          <p>Grid items can be layered/stacked by properly positioning them and assigning <b style="color:#3b759e">z-index</b> when necessary.</p>
-        </section>
-
-        <section>
-          <small>
-            <p>In this example, items 1 and 2 are positioned to start on row line 1 and set to span 2 columns.</p>
-            <p>Both items are positioned by grid line numbers. Item 1 is set to start at column line 1, and item 2 at column line 2, which results in both items overlapping in the center column track.</p>
-            <p>By default, item 2 would sit on top of item 1; however, we’ve created stacking context by assigning <span style="color:#3b759e">z-index: 1</span> to item 1, resulting it to sit on top of item 2.</p>
-          </small>  
-          <div style="width: 50%; float: left;">
-            <pre>
-              <code data-trim>
-                .item--1,
-                .item--2 {
-                  grid-row-start:  1;
-                  grid-column-end: span 2;
-                  opacity: 0.8;
-                }
-
-                .item--1 {
-                  grid-column-start: 1;
-                  z-index: 1;
-                }
-
-                .item--2 {
-                  grid-column-start: 2;
-                }
-              </code>
-            </pre>
-          </div>
-          <div style="width: 50%; float: right;">
-            <img src="images/37.png">
-          </div>
-        </section>
-
-        <section>
-          <p>In this example, a grid item is positioned and layered on top using implicit grid line names from the defined <span style="color:#3b759e">grid-template-areas</span>.</p>
-          <div style="width: 50%; float: left;">
-            <pre>
-              <code data-trim>
-                .grid-item--overlay {
-                  grid-row-start: header-start;
-                  grid-row-end: content-end;
-                  grid-column-start: content-start;
-                  grid-column-end: sidebar-start;
-                  opacity: 0.8;
-                  z-index: 1;
-                }
-              </code>
-            </pre>
-          </div>
-          <div style="width: 50%; float: right;">
-            <img src="images/38.png">
-          </div>
-        </section>
-      </section>
-
-
-      <section> <!--*************** slide ***************-->
-        <section>
           <h3>Aligning Grid Items (Box Alignment)</h3>
           <small>
             <p>CSS’s Box Alignment Module complements CSS Grid to allow items to be aligned along the row of column axis.</p>
