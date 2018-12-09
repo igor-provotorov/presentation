@@ -1,0 +1,1544 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="author" content="Igor Provotorov">
+  <meta name="description" content="Slides For CSS GRID Layout Topic">
+  <title>Introduction to CSS GRID LAYOUT</title>
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/sky.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides" data-background-transition="slide">
+
+
+      <section> <!--*************** slide ***************-->
+        <h2><b>CSS GRID LAYOUT</b></h2>
+        <h3>Introduction</h3>
+        <p>
+          <small>Created by <a href="https://vk.com/igor_provotorov">Igor Provotorov</a> <br> <a href="https://github.com/igor-provotorov">github.com</a></small>
+        </p>
+
+        <aside class="notes">
+          CSS Grid Layout (aka "Grid"), is a two-dimensional grid-based layout system that aims to do nothing less than completely change the way we design grid-based user interfaces. CSS has always been used to lay out our web pages, but it's never done a very good job of it. First we used tables, then floats, positioning and inline-block, but all of these methods were essentially hacks and left out a lot of important functionality (vertical centering, for instance).
+        </aside>
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section data-transition="none">
+          <p><b style="color:#3b759e">CSS Grid Layout</b> is the most powerful layout system available in CSS. It is a 2-dimensional system, meaning it can handle both columns and rows, unlike flexbox which is largely a 1-dimensional system.</p>
+          <h3>Flexbox vs Grid</h3>
+          <img src="images/flexbox_vs_grid/flexbox_vs_grid_dimentions.png" alt="Flexbox VS Grid" width="90%">
+          <aside class="notes">
+            Flexbox helped out, and also Flexbox and css grids share some similarities but the one differences is that the flexbox controls how items flow in one dimention whereas grid controls how items flow in two dimentions. The core difference between Grids and Flex is  that Flexbox lets content size itself based on space available or the dimentions of the content itself. Flex is great of handling alignment, distribution and order.
+          </aside>
+        </section>
+        <section data-transition="none">
+          <p><b style="color:#3b759e">CSS Grid Layout</b> is the most powerful layout system available in CSS. It is a 2-dimensional system, meaning it can handle both columns and rows, unlike flexbox which is largely a 1-dimensional system.</p>
+          <h3>Flexbox vs Grid</h3>
+          <img src="images/flexbox_vs_grid/flexbox_vs_grid_content.png" alt="Flexbox VS Grid" width="90%">
+          <aside class="notes"> 
+          Instead of Flexboxes Grid specifies nothing about how the individual items themselves should be sized. And these items are created in grid container for sizing into.
+          The css grid items are aligned in rows and columns and exist in or span across cells but they did not rely on content structure like tables do, so it allow much more flexibility.</aside>
+        </section>
+      </section>
+
+
+      <section><!--*************** slide ***************-->
+        <section>
+          <h2 style="border-bottom: 3px solid gray">Grid Layout the basics</h2>
+        </section>
+        <section>
+          <h3>Grid Container</h3>
+          <img src="images/the_basics/grid_context.png" alt="Grid Container">
+          <aside class="notes">
+            Grid is the any element(container) with its display property set to grid of inline-grid. Grid is all about relationship between parent container and child items…
+          </aside>
+        </section>
+        <section>
+          <h3>Grid Items</h3>
+          <img src="images/the_basics/grid_items.png" alt="Grid Items">
+          <aside class="notes">
+            The parent container is known as the Grid Container, which contain some items are known as the Grid Items. This Grid Container creates Grid Context for its children items. 
+          </aside>
+        </section>
+        <section>
+          <h3>Grid Container Creates "Grid Context"</h3>
+          <img src="images/the_basics/grid_context.png" alt="Grid Context">
+        </section>
+        <section>
+          <h3>Grid Container aka "Grid"</h3>
+          <img src="images/the_basics/grid_items.png" alt="Grid Container Aka Grid">
+          <aside class="notes">
+            The Grid Container is also known as the Grid.
+          </aside>
+        </section>
+        <section>
+          <h3>Grid Lines</h3>
+          <img src="images/the_basics/grid_lines.png" alt="Grid Lines">
+          <aside class="notes">
+            The Grid is made up by 2 sets of lines known as Grid Lines.
+          </aside>
+        </section>
+        <section>
+          <h3>Grid Columns</h3>
+          <img src="images/the_basics/grid_columns.png" alt="Grid Columns">
+          <aside class="notes">
+            One set of lines defines the Columns for the Grid. This Lines run along where is known as the Column Axis.
+          </aside>
+        </section>
+        <section>
+          <h3>Column Axis</h3>
+          <img src="images/the_basics/column_axis.png" alt="Column Axis">
+        </section>
+        <section>
+          <h3>Grid Rows</h3>
+          <img src="images/the_basics/grid_rows.png" alt="Grid Rows">
+          <aside class="notes">
+            The other set of lines defines the Rows for the Grid. And this lines run perpendicularly to the Column Axis and it names the Row Axis.
+          </aside>
+        </section>
+        <section>
+          <h3>Row Axis</h3>
+          <img src="images/the_basics/row_axis.png" alt="Row Axis">
+        </section>
+        <section>
+          <h3>Grid Tracks</h3>
+          <img src="images/the_basics/grid_tracks_h.png" alt="Grid tracks">
+          <aside class="notes">
+            This Grid Lines together make up what are known as the Grid Tracks. Grid Track is the space between two grid lines, horizontal or vertical. They give us a size about how wide a row could be and how tall a column could be.
+          </aside>
+        </section>
+        <section>
+          <h3>Grid Tracks</h3>
+          <img src="images/the_basics/grid_tracks_v.png" alt="Grid tracks">
+        </section>
+        <section>
+          <h3>Grid Cells</h3>
+          <img src="images/the_basics/grid_cells.png" alt="Grid cells">
+          <aside class="notes">
+            Grid Cell is the space between four grid lines. Where Grid Rows and Grid Columns intersect is where we find what are known as Grid Cells. And that are the smallest units of the Grid where we can place items into.
+          </aside>
+        </section>
+        <section>
+          <h3>Grid Areas</h3>
+          <img src="images/the_basics/grid_areas.png" alt="Grid areas">
+          <aside class="notes">
+            Grid Area is the area between four grid lines. And finally we have what are known as Grid Areas, which essentially any portion of the Grid that is contained by four Grid Lines.
+          </aside>
+        </section>
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section>            
+          <h3>Grid Container</h3>
+          <p>Create a grid container by setting the <b style="color:#3b759e">display</b> property with a value of <b style="color:#3b759e">grid</b> or <b style="color:#3b759e">inline-grid</b>. All direct children of grid containers become grid items.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  display: grid;
+                }
+              </code>
+            </pre>
+            <small><p>Grid items are placed in rows by default and span the full width of the grid container.</p></small>
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  display: inline-grid;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">              
+            <img src="images/!1.png">
+          </div>
+          <aside class="notes">
+            A quick example if you want to create a
+            grid container you have this like new
+            value for the display property called
+            grid or inline grid depending and if you
+            notice that in comparison to Flex blocks
+            flex box by default aligns items and
+            columns whereas by default if you just
+            drop a display grid it sets all of the
+            items in rows
+          </aside>
+        </section>
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section>           
+          <h3>Explicit Grid</h3>
+          <p>Explicitly set a grid by creating columns and rows with the <b style="color:#3b759e">grid-template-columns</b> and <b style="color:#3b759e">grid-template-rows</b> properties.</p>
+          <aside class="notes">                        
+            so now we're going to
+            start defining a grid so here we're
+            explaining what's called an explicit
+            grid and we're
+            telling it to create column tracks and
+            row tracks. so I have two different
+            properties the grid display - grid
+            template rows, and grid template columns
+            properties
+          </aside>
+        </section>
+
+        <section>
+          <p>A row track is created for each value specified for <span style="color:#3b759e">grid-template-rows</span>. Track size values can be any non-negative, length value (<span style="color:#3b759e">px, %, em, etc.</span>)</p>
+          <small>
+            <p>Items 1 and 2 have fixed heights of <span style="color:#3b759e">50px</span> and <span style="color:#3b759e">100px</span>.</p>
+            <p>Because only 2 row tracks were defined, heights of items 3 and 4 are defined by the contents of each.</p>
+          </small>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  display: grid;
+                  grid-template-rows: 50px 100px;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/3.png">
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <p>Like rows, a column track is created for each value specified for <span style="color:#3b759e">grid-template-columns</span>.</p>
+          <small>
+            <p>Items 4, 5 and 6 were placed on a new row track because only 3 column track sizes were defined; and because they were placed in column tracks 1, 2 and 3, their column sizes are equal to items 1, 2 and 3.</p>
+            <p>Grid items 1, 2 and 3 have fixed widths of <span style="color:#3b759e">90px</span>, <span style="color:#3b759e">50px</span> and <span style="color:#3b759e">120px</span> respectively.</p>
+          </small>
+          <div style="width: 50%; float: left;">              
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  display: grid;
+                  grid-template-rows: 50px 100px;
+                  grid-template-columns: 90px 50px 120px;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/4.png">
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <p>The <b style="color:#3b759e">fr</b> unit helps create flexible grid tracks. It represents a fraction of the available space in the grid container (works like Flexbox’s unitless values).</p>            
+          <small><p>In this example, items 1 and 2 take up the first two (of four) sections while item 3 takes up the last two.</p></small>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  display: grid;
+                  grid-template-columns: 1fr 1fr 2fr;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/5.png">
+          </div>
+          <aside class="notes">            
+            but if you're noticing these are
+            fixed width values and so we're talking
+            about the responsive web's
+            well grid also has this it introduces a
+            new unit which is really really cool
+            call the FR or the fraction so it's
+            very similar to the flexbox unitless
+            values and FR represents the fraction
+            of the available space in the across the
+            grid container.                    
+            in this example we
+            have 2 columns defined at one fr each
+            and third column defined at two fr.
+            so it's just going to take all of the
+            available space in the grid container
+            separate it into 3 sections and then
+            just evenly distribute it across the
+            columns.
+          </aside>
+        </section>
+
+        <section>
+          <p><span style="color:#3b759e">fr</span> is calculated based on the remaining space when combined with other length values.</p>      
+          <small><p>In this example, <span style="color:#3b759e">3rem</span> and <span style="color:#3b759e">25%</span> would be subtracted from the available space before the size of <<span style="color:#3b759e">fr</span> is calculated:
+            <span style="color:#3b759e">1fr = ((width of grid) - (3rem) - (25% of width of grid)) / 3</span></p></small>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  display: grid;
+                  grid-template-columns: 3rem 25% 1fr 2fr;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/6.png">
+          </div>
+          <aside class="notes"> You can also combine fr with like other length values.
+        </aside>
+        </section>
+
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section>
+          <h3>Minimum and Maximum Grid Track Sizes</h3>
+          <p>Tracks sizes can be defined to have a minimum and/or maximum size with the <b style="color:#3b759e">minmax()</b> function.</p>                  
+          <p>The <span style="color:#3b759e">minmax()</span> function accepts 2 arguments: the first is the minimum size of the track and the second the maximum size. Alongside length values, the values can also be <span style="color:#3b759e">auto</span>, which allows the track to grow/stretch based on the size of the content.</p>
+          <aside class="notes">
+            There's this also min Max function. It's
+            this new function you can use inside of
+            the value when defining grid sizes so
+            you can tell it to have like a minimum
+            size and a maximum size and the default
+            value is auto based on like the content.
+          </aside>
+        </section>
+
+        <section>             
+          <p>In this example, the first row track is set to have a minimum height of <span style="color:#3b759e">100px</span>, but its maximum size of <span style="color:#3b759e">auto</span> will allow the row track to grow it the content is taller than <span style="color:#3b759e">100px</span>. The first column track has a minimum size of <span style="color:#3b759e">auto</span>, but its maximum size of <span style="color:#3b759e">50%</span> will prevent it from getting no wider than <span style="color:#3b759e">50%</span> of the grid container width.</p>          
+          <div style="width: 60%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  display: grid;
+                  grid-template-rows: minmax(100px, auto);
+                  grid-template-columns: minmax(auto, 50%) 1fr 3em;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 40%; float: right;">
+            <img src="images/7.png" style="margin-top: -5px">
+          </div>
+          <aside class="notes">
+            But if you start adding content it'll
+            grow automatically
+          </aside>
+        </section>
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section>
+          <h3>Repeating Grid Tracks</h3>
+          <p>Define repeating grid tracks using the <b style="color:#3b759e">repeat()</b> notation. This is useful for grids with items with equal sizes or many items.</p>    
+        </section>
+
+        <section>
+          <p>The <span style="color:#3b759e">repeat()</span> notation accepts 2 arguments: the first represents the number of times the defined tracks should repeat, and the second is the track definition.</p>
+          <div style="width: 60%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  display: grid;
+                  grid-template-rows: repeat(4, 100px);
+                  grid-template-columns: repeat(3, 1fr);
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 40%; float: right;">
+            <img src="images/8.png">
+          </div>
+        </section>
+
+        <section>
+          <p><span style="color:#3b759e">repeat()</span> can also be used within track listings.</p>
+          <small><p>In this example, the first and last column tracks have widths of <span style="color:#3b759e">30px</span>, and the 3 column tracks in between, created by <span style="color:#3b759e">repeat()</span>, have widths of <span style="color:#3b759e">1fr</span> each.</p></small>
+          <div style="width: 60%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  display: grid;
+                  grid-template-rows: repeat(4, 100px);
+                  grid-template-columns: 30px repeat(3, 1fr) 30px;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 40%; float: right;">
+            <img src="images/9.png">
+          </div>
+          <aside class="notes">
+            You can also
+            combine the repeat function with other
+            track fixed width values or flexible
+            values so here you have the first and
+            last columns at 30 pixels and then in
+            between instead of defining like 1 fr 1
+            fr 1 fr I'm just saying ok let's repeat
+            3 columns at 1 fr and then it's just
+            going to distribute it the available
+            space across the defined columns.
+          </aside>
+        </section>
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section>
+          <h3>Grid Gaps (Gutters)</h3>
+          <p>The <span style="color:#3b759e">grid-column-gap</span> and <span style="color:#3b759e">grid-row-gap</span> properties create gutters between columns and rows.</p>
+          <p>Grid gaps are only created in between columns and rows, and not along the edge of the grid container.</p>
+          <aside class="notes">
+            So we
+            have grid gaps I the frustration about
+            flexbox about evenly spacing out the
+            items grid gap solves all of these
+            issues so here we have a defined grid
+            and there's two different properties the
+            grid row gap and the grid column gap and
+            the wonderful thing is it doesn't touch
+            the outer edge of the grid container it
+            no it's smart enough to say ok I just
+            want to evenly spaced out the actual
+            items and I don't need to add additional
+            spacing around the container which is
+            really cool.
+          </aside>
+        </section>
+
+        <section>
+          <p>Gap size values can be any non-negative, length value (<span style="color:#3b759e">px, %, em</span>, etc.)</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  display: grid;
+                  grid-row-gap: 20px;
+                  grid-column-gap: 5rem;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/10.png">
+          </div>
+        </section>
+
+        <section>
+          <p>If two values are specified, the first represents <span style="color:#3b759e">grid-row-gap</span> and the second <span style="color:#3b759e">grid-column-gap</span>.</p>
+          <p><span style="color:#3b759e">grid-gap</span> is shorthand for <span style="color:#3b759e">grid-row-gap</span> and <span style="color:#3b759e">grid-column-gap</span>.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  display: grid;
+                  grid-gap: 100px 1em;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/11.png">
+          </div>
+        </section>
+
+        <section>
+          <p>One value sets equal row and column gaps.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  display: grid;
+                  /*grid-row-gap: 2rem;
+                  grid-column-gap: 2rem;*/
+                  grid-gap: 2rem;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/12.png">
+          </div>
+        </section>
+        <aside class="notes">
+          Grid gap
+          is just a shorthand function if you just
+          put one value in it'll evenly set the
+          spacing for rows and columns.
+        </aside>
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section>
+          <h3>Positioning Items by Grid Line Numbers</h3>
+          <p>Grid lines are essentially lines that represent the start of, the end of, or between column and row tracks.</p>
+          <p>Each line, starting from the start of the track and in the direction of the grid, is numbered incrementally starting from 1.</p>
+          <aside class="notes">
+            another cool thing is you have you're able to
+            also position grid items on a grid.
+          </aside>
+        </section>
+
+        <section>
+          <p>This 2-column by 3-row grid results in 3 column lines and 4 row lines. Item 1 was repositioned by row and column line numbers.</p>
+          <small>            
+            <p>If an item spans only one row or column, <span style="color:#3b759e">grid-row/column-end</span> is not necessary.</p>
+          </small>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-item--1 {
+                  grid-row-start: 2;
+                  grid-row-end: 3;
+                  grid-column-start: 2;
+                  grid-column-end: 3;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/13.png" style="margin-top: 0px;">
+          </div>
+        </section>
+
+        <section>
+          <p><span style="color:#3b759e">grid-row</span> is shorthand for <span style="color:#3b759e">grid-row-start</span> and <span style="color:#3b759e">grid-row-end</span>.</p>
+          <p><span style="color:#3b759e">grid-column</span> is shorthand for <span style="color:#3b759e">grid-column-start</span> and <span style="color:#3b759e">grid-column-end</span>.</p>
+          <small>
+            <p>If one value is provided, it specifies <span style="color:#3b759e">grid-row/column-start</span>.</p>
+            <p>If two values are specified, the first value corresponds to <span style="color:#3b759e">grid-row/column-start</span> and the second <span style="color:#3b759e">grid-row/column-end</span>, and must be separated by a forward slash /.</p>
+          </small>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-item--1 {
+                  grid-row: 2;
+                  /*grid-colum-start: 3;
+                  grid-colum-end: 4;*/
+                  grid-column: 3 / 4;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/14.png">
+          </div>
+        </section>
+
+        <section>
+          <p><span style="color:#3b759e">grid-area</span> is shorthand for <span style="color:#3b759e">grid-row-start, grid-column-start, grid-row-end</span> and <span style="color:#3b759e">grid-column-end</span>.</p>
+          <small>
+            <p>If four values are specified, the first corresponds to <span style="color:#3b759e">grid-row-start</span>, the second <span style="color:#3b759e">grid-column-start</span>, the third <span style="color:#3b759e">grid-row-end</span> and the fourth <span style="color:#3b759e">grid-column-end</span>.</p>
+          </small>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-item--1 {
+                  /*grid-row-start: 2;
+                  grid-colum-start: 2;
+                  grid-row-end: 3;
+                  grid-colum-end: 3;*/
+                  grid-area: 2 / 2 / 3 / 3;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/15.png">
+          </div>
+        </section>
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section>
+          <h3>Spanning Items Across Rows and Columns</h3>
+          <p>Grid items span only one column and row track by default, but can span multiple row and/or column tracks using the same properties to position them.</p>
+        </section>
+
+        <section>
+          <p>Set a grid item to span more than one column track by setting <span style="color:#3b759e">grid-column-end</span> to a column line number that is more than one column away from <span style="color:#3b759e">grid-column-start</span>.</p>
+
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-item--1 {
+                  grid-column-start: 1;
+                  grid-column-end: 4;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/16.png">
+          </div>
+        </section>
+
+        <section>
+          <p>Grid items can also span across multiple row tracks by setting <span style="color:#3b759e">grid-row-end</span> to more than one row track away.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-item--1 {
+                  grid-row-start: 1;
+                  grid-row-end: 4;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/17.png">
+          </div>
+        </section>
+
+        <section>
+          <p>Shorthand properties <span style="color:#3b759e">grid-row</span> and <span style="color:#3b759e">grid-column</span> can also be used to position and span grid items more than one row or column.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-item--1 {
+                  grid-row: 2 / 5;
+                  grid-column: 2 / 4;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/18.png">
+          </div>
+        </section>
+
+        <section>
+          <p>The keyword <span style="color:#3b759e">span</span>, followed by the # of columns or rows to span, can also be used.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-item--1 {
+                  /*grid-row-start: 2;
+                  grid-row-end: 5;*/
+                  grid-row: 2 / span 3;
+                  /*grid-column-start: 1;
+                  grid-column-end: 3;*/
+                  grid-column: span 2;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/19.png">
+          </div>
+        </section>          
+
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section>
+          <h3>Naming Grid Lines</h3>
+          <p>Grid lines can be named when defining the grid with the <span style="color:#3b759e">grid-template-rows</span> and <span style="color:#3b759e">grid-template-columns</span> properties. Line names can then be referenced to position grid items.</p>
+          <aside class="notes">
+            The same thing with columns
+            even crazier you can take these lines
+            that are numbered and then you can
+            actually like give it names to give it a
+            little more context and then you can use
+            those names to position grid items.
+          </aside>
+        </section>
+
+        <section>
+          <small>
+            <p>Assign names to grid lines when defining your grid with the <span style="color:#3b759e">grid-template-rows</span> and <span style="color:#3b759e">grid-template-columns</span> properties.</p>
+            <p>In line names, avoid keywords that appear in the specification (e.g. <span style="color:#3b759e">span</span>) to not cause confusion.</p>
+            <p>Assigned line names must be wrapped in square brackets [<span style="color:#3b759e">name-of-line</span>] and placed relative to the grid tracks.</p>
+          </small>
+          <pre>
+            <code data-trim style="width: 110%; margin-left: -5%">
+              .grid-container {
+                grid-template-rows:    [row-1-start] 1fr [row-2-start] 1fr [row-2-end];
+                grid-template-columns: [col-1-start] 1fr [col-2-start] 1fr [col-3-start] 1fr [col-3-end];
+              }
+            </code>
+          </pre>
+          <img src="images/20.png">
+          <aside class="notes">
+            So a
+            basic example here is you're taking
+            templates and rows you're defining them
+            with sizes but you're also have these
+            grid names and so line names so the line
+            name should be surrounded by square
+            brackets and like relative to where they
+            would be positioned based on where
+            you're defining these columns and rows
+            and it's good practice to you can name
+            them whatever you want but it's good
+            practice to use the hyphen start and -
+            end and append it at the end because
+            there's some like additional implicit
+            added benefits.
+          </aside>
+        </section>
+
+        <section>
+          <p>Multiple names can be assigned to grid lines by adding names within square brackets and separating each with a whitespace.</p>
+          <p>Each line name can then be referenced when positioning grid items by line names.</p>
+          <pre>
+            <code data-trim style="width: 114%; margin-left: -7%">
+              .grid-container {
+                grid-template-rows:    [row-start row-1-start] 1fr [row-1-end row-2-start] 1fr [row-2-end row-end];
+                grid-template-columns: [col-start] 1fr [col-2-start] 1fr [col-3-start] 1fr [col-end];
+              }
+            </code>
+          </pre>
+          <img src="images/21.png" style="margin-top: 0px;">
+        </section>          
+
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section>
+          <h3>Positioning Items by Line Names</h3>
+          <p>With named grid lines, items can be positioned by line names and numbers.</p>
+        </section>
+
+        <section>
+          <p>Referenced line names should not be wrapped in square brackets.</p>  
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-item--1 {
+                  grid-row-start: row-2-start;
+                  grid-row-end: row-end;
+                  grid-column-start: col-2-start;
+                  grid-column-end: col-end;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/22.png">
+          </div>
+        </section>
+
+        <section>
+          <p><span style="color:#3b759e">grid-row</span> and <span style="color:#3b759e">grid-column</span> shorthand properties also support the use of grid line names when positioning items.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-item--1 {
+                  grid-row: row-2-start / row-end;
+                  grid-column: col-2-start / col-end;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/23.png">
+          </div>
+        </section>          
+
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section>
+          <h3>Naming and Positioning Items by Grid Areas</h3>
+          <p>Like grid line names, grid areas can also be named with the <span style="color:#3b759e">grid-template-areas</span> property. Names can then be referenced to position grid items.</p>
+          <aside class="notes">
+            another really cool thing is now you're naming
+            grid areas you can take like an entire
+            block or a section of a grid and likeIMPLICITLY NAMED GRID AREAS
+            say I want this to be the header or I
+            want this to be the footer and then you
+            can like take items and like position
+            them into the appropriate places.
+          </aside>
+        </section>
+
+        <section>
+          <p>Sets of names should be surrounded in single or double quotes, and each name separated by a whitespace. Each set of names defines a row, and each name defines a column.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  grid-template-areas:
+                    "header header"
+                    "content sidebar"
+                    "footer footer";
+                  grid-template-rows: 150px 1fr 100px;
+                  grid-template-columns: 1fr 200px;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/26.png">
+          </div>
+          <aside class="notes">
+            so here
+            this is just an example you are we have
+            the grid template areas property and
+            then you're using like the syntax to say
+            I have two columns on the first row and
+            that entire block I want to name it
+            header and then on the second row I have
+            content on the Left sidebar on the right
+            and on the last row I just want the
+            entire block to be named footer
+          </aside>
+        </section>
+
+        <section data-transition="none">
+          <p>Grid area names can be referenced by the same properties to position grid items: <span style="color:#3b759e">grid-row-start, grid-row-end, grid-column-start</span>, and <span style="color:#3b759e">grid-column-end</span>.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .header {
+                  grid-row-start: header;
+                  grid-row-end: header;
+                  grid-column-start: header;
+                  grid-column-end: header;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/27.png">
+          </div>
+          <aside class="notes">
+            and then while we define these names you can use
+            these names to then start positioning
+            and creating the grid so here I have had
+            our contents header and I'm using a grid-row and column properties.
+          </aside>
+        </section>
+
+        <section data-transition="none">
+          <p>The <span style="color:#3b759e">grid-row</span> and <span style="color:#3b759e">grid-column</span> shorthand properties can also reference grid area names.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .footer {
+                  grid-row: footer;
+                  grid-column: footer;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/28.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>The <span style="color:#3b759e">grid-area</span> shorthand property can also be used to reference grid area names.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .content {
+                  grid-area: content;
+                }
+                .sidebar {
+                  grid-area: sidebar;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/29.png">
+          </div>
+        </section>          
+
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section>
+          <h3>Implicit Grid</h3>
+          <p>An implicit grid is created when a grid needs to position items outside of the explicit grid because there isn’t enough space for items in the explicitly defined tracks or you decide to position something outside of the explicit grid. Those items are then auto-placed in the implicit grid.</p>
+          <p>The implicit grid can be defined using the <span style="color:#3b759e">grid-auto-rows</span>, <span style="color:#3b759e">grid-auto-columns</span>, and <span style="color:#3b759e">grid-auto-flow</span> properties.</p>
+        </section>
+
+        <section>
+          <p>In this example we’ve only defined one row track, therefore grid items 1 and 2 are <span style="color:#3b759e">70px</span> tall.</p>
+          <small style="margin-top: -25px">              
+            <p>A second row track was auto-created to make room for items 3 and 4. <span style="color:#3b759e">grid-auto-rows</span> defines the row track sizes in the implicit grid, which is reflected by the the <span style="color:#3b759e">140px</span> heights of items 3 and 4.</p>
+          </small>  
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  grid-template-rows: 70px;
+                  grid-template-columns: repeat(2, 1fr);
+                  grid-auto-rows: 140px;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/30.png">
+          </div>
+        </section>
+
+        <section>
+          <p>The default flow (direction) of a grid is <span style="color:#3b759e">row</span>.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  grid-auto-flow: row;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/31.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>A grid’s flow can be changed to <span style="color:#3b759e">column</span>.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  grid-auto-flow: column;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/32.png">
+          </div>
+        </section>
+
+        <section>
+          <p>In this example, we’ve only defined the sizes of the first two column tracks—item 1 is <span style="color:#3b759e">30px</span> wide and item 2, <span style="color:#3b759e">60px</span>.</p>
+          <small style="margin-top: -25px">
+            <p>Column tracks are auto-created in the implicit grid to make room for items 3, 4 and 5; and track sizes are defined by <span style="color:#3b759e">grid-auto-columns</span>.</p>
+          </small>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  grid-template-columns: 30px 60px;
+                  grid-auto-flow: column;
+                  grid-auto-columns: 1fr;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/33.png">
+          </div>
+        </section>
+
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section>
+          <h3>Layering Grid Items</h3>
+          <p>Grid items can be layered/stacked by properly positioning them and assigning <b style="color:#3b759e">z-index</b> when necessary.</p>
+        </section>
+
+        <section>
+          <small>
+            <p>In this example, items 1 and 2 are positioned to start on row line 1 and set to span 2 columns.</p>
+            <p>Both items are positioned by grid line numbers. Item 1 is set to start at column line 1, and item 2 at column line 2, which results in both items overlapping in the center column track.</p>
+            <p>By default, item 2 would sit on top of item 1; however, we’ve created stacking context by assigning <span style="color:#3b759e">z-index: 1</span> to item 1, resulting it to sit on top of item 2.</p>
+          </small>  
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .item--1,
+                .item--2 {
+                  grid-row-start:  1;
+                  grid-column-end: span 2;
+                  opacity: 0.8;
+                }
+
+                .item--1 {
+                  grid-column-start: 1;
+                  z-index: 1;
+                }
+
+                .item--2 {
+                  grid-column-start: 2;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/37.png">
+          </div>
+        </section>
+
+        <section>
+          <p>In this example, a grid item is positioned and layered on top using implicit grid line names from the defined <span style="color:#3b759e">grid-template-areas</span>.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-item--overlay {
+                  grid-row-start: header-start;
+                  grid-row-end: content-end;
+                  grid-column-start: content-start;
+                  grid-column-end: sidebar-start;
+                  opacity: 0.8;
+                  z-index: 1;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/38.png">
+          </div>
+        </section>
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section>
+          <h3>Aligning Grid Items (Box Alignment)</h3>
+          <small>
+            <p>CSS’s Box Alignment Module complements CSS Grid to allow items to be aligned along the row of column axis.</p>
+            <p><span style="color:#3b759e">justify-items</span> and <span style="color:#3b759e">justify-self</span> align items along the row axis, and <span style="color:#3b759e">align-items</span> and <span style="color:#3b759e">align-self</span> align items along the column axis.</p>
+            <p><span style="color:#3b759e">justify-items</span> and <span style="color:#3b759e">align-items</span> are applied to the grid container and support the following values:</p>
+          </small>            
+          <ul style="color:#3b759e">
+            <li>auto</li>
+            <li>normal</li>
+            <li>start</li>
+            <li>end</li>
+            <li>center</li>
+            <li>stretch</li>
+            <li>baseline</li>
+            <li>first baseline</li>
+            <li>last baseline</li>
+          </ul>
+        </section>
+
+        <section>
+          <p>Items are positioned at the start of the row axis (row line number <span style="color:#3b759e">1</span>).</p>
+          <div style="width: 50%; float: left;">
+            <pre style="margin-top: -20px;">
+              <code data-trim>
+                .grid {
+                  grid-template-rows: 80px 80px;
+                  grid-template-columns: 1fr 1fr;
+                  grid-template-areas:
+                    "content content"
+                    "content content";
+                }
+                .item--1 {
+                  grid-area: content;
+                }
+                .grid {
+                  justify-items: start;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/39.png" style="margin-top: -15px;">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>Items are positioned at the center of the row axis.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid {
+                  justify-items: center;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/40.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>Items are positioned at the end of the row axis.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid {
+                  justify-items: end;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/41.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>Items are stretched across the entire row axis. <span style="color:#3b759e">stretch</span> is the default value.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid {
+                  justify-items: stretch;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/42.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p  style="font-size: 1.9rem;">Items are positioned at the start of the column axis (column line 1).</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid {
+                  align-items: start;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/43.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>Items are positioned at the center of the column axis.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid {
+                  align-items: center;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/44.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>Items are positioned at the end of the column axis.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid {
+                  align-items: end;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/45.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>Items are stretched across the entire column axis.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid {
+                  align-items: stretch;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/46.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>Items are positioned at the center of the row and column axes.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid {
+                  justify-items: center;
+                  align-items: center;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/47.png">
+          </div>
+        </section>
+
+        <section>
+          <p>Individual items can be self-aligned with the <span style="color:#3b759e">align-self</span> and <span style="color:#3b759e">justify-self</span> properties. These properties support the following values:</p>
+          <ul style="color:#3b759e">
+            <li>auto</li>
+            <li>normal</li>
+            <li>start</li>
+            <li>end</li>
+            <li>center</li>
+            <li>stretch</li>
+            <li>baseline</li>
+            <li>first baseline</li>
+            <li>last baseline</li>
+          </ul>
+        </section>
+
+        <section data-transition="none">
+          <p><span style="color:#3b759e">justify-self</span> aligns individual items along the row axis.</p>  
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .item--1 { justify-self: start }
+                .item--2 { justify-self: center }
+                .item--3 { justify-self: end }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/48.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p><span style="color:#3b759e">align-self</span> aligns items along the column axis.</p>  
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .item--1 { align-self: start }
+                .item--2 { align-self: center }
+                .item--3 { align-self: end }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/49.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>Item 1 is positioned at the center of the row and column axes.</p>
+          <div style="width: 50%; float: left;">
+           <pre>
+            <code data-trim>
+              .item--1 {
+                justify-self: center;
+                align-self: center;
+              }
+            </code>
+          </pre> 
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/50.png">
+          </div>
+        </section>
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section>
+          <h3>Aligning Grid Tracks</h3>
+          <small>
+            <p>Grid tracks can be aligned relative to the grid container along the row and column axes.</p>
+            <p><span style="color:#3b759e">align-content</span> aligns tracks along the row axis and <span style="color:#3b759e">justify-content</span> along the column axis. They support the following properties:</p>
+          </small>            
+          <ul style="color:#3b759e">
+            <li>normal</li>
+            <li>start</li>
+            <li>end</li>
+            <li>center</li>
+            <li>stretch</li>
+            <li>space-around</li>
+            <li>space-between</li>
+            <li>space-evenly</li>
+            <li>baseline</li>
+            <li>first baseline</li>
+            <li>last baseline</li>
+          </ul>
+        </section>
+
+        <section>
+          <p>start aligns column tracks along and at the start of the row axis — it is the default value.</p>  
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  width: 100%;
+                  height: 300px;
+                  grid-template-columns: repeat(4, 45px);
+                  grid-template-rows: repeat(4, 45px);
+                  grid-gap: 0.5em;
+                  justify-content: start;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/51.png" style="margin-top: 1px">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>Columns are aligned at the end of the row axis.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  justify-content: end;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/52.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>Columns are aligned at the center of the row axis.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  justify-content: center;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/53.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>The remaining space of the grid container is distributed and applied to the start and end of each column track.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  justify-content: space-around;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/54.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>The remaining space is distributed between the column tracks.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  justify-content: space-between;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/55.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>The remaining space is distributed where the space between the columns are equal to the space at the start and end of the row track.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  justify-content: space-evenly;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/56.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>start aligns rows at the start of the column axis and is the default value.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  align-content: start;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/57.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>Rows are aligned at the end of the column axis.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  align-content: end;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/58.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>Rows are aligned at the center of the column axis.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  align-content: center;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/59.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>The remaining space of the grid container is distributed and applied to the start and end of each row track.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  align-content: space-around;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/60.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>The remaining space is distributed between the row tracks.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  align-content: space-between;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/61.png">
+          </div>
+        </section>
+
+        <section data-transition="none">
+          <p>The remaining space is distributed where the space between the rows are equal to the space at the start and end of the column track.</p>
+          <div style="width: 50%; float: left;">
+            <pre>
+              <code data-trim>
+                .grid-container {
+                  align-content: space-evenly;
+                }
+              </code>
+            </pre>
+          </div>
+          <div style="width: 50%; float: right;">
+            <img src="images/62.png">
+          </div>
+        </section>
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section>
+          <h3>Browser Supports</h3>
+          <img src="images/browser_supports_grids.png">
+          <small>
+            <p>CSS GRID layout is supported by all modern browsers</p>
+          </small>
+          <aside class="notes">
+            so what does grid
+            support?
+            look like good support is
+            actually surprisingly pretty good so
+            this is just a screenshot from caniuse.com
+            that I took a couple days ago and
+            you'll notice the partial support for
+            IE and edge.
+            Surprisingly the spec for
+            grid came from Microsoft, so it's been in
+            development for over five years and
+            because the spec has kind of like
+            evolved, it's kind of falling behind, but
+            I believe my understanding is edge will
+            catch up and I'm not 100% sure about ie.
+          </aside>
+        </section>
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section>
+          <h2>Thanks for attention!</h2>
+        </section>
+      </section>
+
+    </div>
+  </div>
+
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      dependencies: [
+      { src: 'plugin/markdown/marked.js' },
+      { src: 'plugin/markdown/markdown.js' },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      ]
+    });
+  </script>
+</body>
+</html>
