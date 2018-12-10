@@ -2,6 +2,8 @@ Presentation task for rss2018q3(CSS GRID LAYOUT SYSTEM)
 
 Notes for presentation are in aside tags with class "notes"
 
+link to notes - [notes](https://github.com/igor-provotorov/presentation/blob/master/notes.docx)
+
 link to presentation - [CSS GRID by Igor Provotorov](https://igor-provotorov.github.io/presentation/)
 
 link to video - [CSS GRID by Igor Provotorov](https://www.youtube.com/watch?v=YwovNLMAKBQ)
