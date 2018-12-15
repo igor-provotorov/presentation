@@ -6,7 +6,7 @@ link to notes - [notes](https://github.com/igor-provotorov/presentation/blob/mas
 
 link to presentation - [CSS GRID by Igor Provotorov](https://igor-provotorov.github.io/presentation/)
 
-link to video - [CSS GRID by Igor Provotorov](https://www.youtube.com/watch?v=YwovNLMAKBQ)
+link to video - [CSS GRID by Igor Provotorov](https://www.youtube.com/watch?v=hPy-qmh5WGo)
 
 ### Presentation
 Your task is to prepare a presentation on a given topic (offered or approved by mentor). The whole list of appropricate topics could be found here - https://github.com/rolling-scopes-school/lectures.
