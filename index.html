@@ -62,7 +62,7 @@
 
       <section><!--*************** slide ***************-->
         <section>
-          <h2 style="border-bottom: 3px solid gray">Grid Layout the basics</h2>
+          <h2>Grid Layout the basics</h2>
         </section>
         <section>
           <h3>Grid Container</h3>
@@ -881,90 +881,6 @@
 
       <section> <!--*************** slide ***************-->
         <section>
-          <h3>Implicit Grid</h3>
-          <p>An implicit grid is created when a grid needs to position items outside of the explicit grid because there isn’t enough space for items in the explicitly defined tracks or you decide to position something outside of the explicit grid. Those items are then auto-placed in the implicit grid.</p>
-          <p>The implicit grid can be defined using the <span style="color:#3b759e">grid-auto-rows</span>, <span style="color:#3b759e">grid-auto-columns</span>, and <span style="color:#3b759e">grid-auto-flow</span> properties.</p>
-        </section>
-
-        <section>
-          <p>In this example we’ve only defined one row track, therefore grid items 1 and 2 are <span style="color:#3b759e">70px</span> tall.</p>
-          <small style="margin-top: -25px">              
-            <p>A second row track was auto-created to make room for items 3 and 4. <span style="color:#3b759e">grid-auto-rows</span> defines the row track sizes in the implicit grid, which is reflected by the the <span style="color:#3b759e">140px</span> heights of items 3 and 4.</p>
-          </small>  
-          <div style="width: 50%; float: left;">
-            <pre>
-              <code data-trim>
-                .grid-container {
-                  grid-template-rows: 70px;
-                  grid-template-columns: repeat(2, 1fr);
-                  grid-auto-rows: 140px;
-                }
-              </code>
-            </pre>
-          </div>
-          <div style="width: 50%; float: right;">
-            <img src="images/30.png">
-          </div>
-        </section>
-
-        <section>
-          <p>The default flow (direction) of a grid is <span style="color:#3b759e">row</span>.</p>
-          <div style="width: 50%; float: left;">
-            <pre>
-              <code data-trim>
-                .grid-container {
-                  grid-auto-flow: row;
-                }
-              </code>
-            </pre>
-          </div>
-          <div style="width: 50%; float: right;">
-            <img src="images/31.png">
-          </div>
-        </section>
-
-        <section data-transition="none">
-          <p>A grid’s flow can be changed to <span style="color:#3b759e">column</span>.</p>
-          <div style="width: 50%; float: left;">
-            <pre>
-              <code data-trim>
-                .grid-container {
-                  grid-auto-flow: column;
-                }
-              </code>
-            </pre>
-          </div>
-          <div style="width: 50%; float: right;">
-            <img src="images/32.png">
-          </div>
-        </section>
-
-        <section>
-          <p>In this example, we’ve only defined the sizes of the first two column tracks—item 1 is <span style="color:#3b759e">30px</span> wide and item 2, <span style="color:#3b759e">60px</span>.</p>
-          <small style="margin-top: -25px">
-            <p>Column tracks are auto-created in the implicit grid to make room for items 3, 4 and 5; and track sizes are defined by <span style="color:#3b759e">grid-auto-columns</span>.</p>
-          </small>
-          <div style="width: 50%; float: left;">
-            <pre>
-              <code data-trim>
-                .grid-container {
-                  grid-template-columns: 30px 60px;
-                  grid-auto-flow: column;
-                  grid-auto-columns: 1fr;
-                }
-              </code>
-            </pre>
-          </div>
-          <div style="width: 50%; float: right;">
-            <img src="images/33.png">
-          </div>
-        </section>
-
-      </section>
-
-
-      <section> <!--*************** slide ***************-->
-        <section>
           <h3>Aligning Grid Items (Box Alignment)</h3>
           <small>
             <p>CSS’s Box Alignment Module complements CSS Grid to allow items to be aligned along the row of column axis.</p>
@@ -1451,6 +1367,16 @@
             catch up and I'm not 100% sure about ie.
           </aside>
         </section>
+      </section>
+
+
+      <section> <!--*************** slide ***************-->
+        <section>
+          <h2>Conclusion</h2>
+          <aside class="notes">
+            As you’ve seen, the CSS Grid Layout Module is powerful because of its code brevity and the fact that you have the power to change the layout order without touching the markup. These features have helped us to permanently change the way we create layouts for the web.
+          </aside>
+        </section>        
       </section>
 
 
